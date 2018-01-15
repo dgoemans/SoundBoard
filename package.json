@@ -21,6 +21,7 @@
     "browser-sync": "^2.18.13",
     "browser-sync-webpack-plugin": "^1.2.0",
     "fetch-polyfill": "^0.8.2",
+    "howler": "^2.0.7",
     "jshint": "^2.9.5",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
