@@ -9,14 +9,14 @@ class App extends React.Component {
         super(props);
 
         this.sounds = [
-            'chord_1.wav',
-            'progression_1.wav',
-            'nylon_progression.wav',
-            'electric_f_chord.wav',
-            'country.wav',
-            'short_riff.mp3',
-            'slap.wav',
-            'tenor.wav',
+            { track: 'chord_1.wav', title: 'Minor Illusion' },
+            { track: 'nylon_progression.wav', title: 'Mage Hand' },
+            { track: 'progression_1.wav', title: 'Disonant Whispers' },
+            { track: 'electric_f_chord.wav', title: 'Faerie Fire' },
+            { track: 'country.wav', title: 'Heroism' },
+            { track: 'short_riff.mp3', title: 'Heat Metal' },
+            { track: 'slap.wav', title: 'Sleep' },
+            { track: 'tenor.wav', title: 'Silence' },
         ]
     }
 
@@ -27,7 +27,8 @@ class App extends React.Component {
             buttons.push(<SoundButton 
                 key={i} 
                 className={'button' + (i+1)}
-                sound={'sounds/' + this.sounds[i]}
+                sound={'sounds/' + this.sounds[i].track}
+                title={this.sounds[i].title}
             />);
         }
 

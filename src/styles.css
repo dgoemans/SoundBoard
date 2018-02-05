@@ -1,6 +1,11 @@
 body {
     margin: 0px;
     padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 .container {
@@ -14,47 +19,57 @@ body {
     width: 150px;
     height: 150px;
     margin: 10px;
-    box-sizing: border-box;
     box-shadow: 0px 2px 3px 1px rgba(0,0,0,0.2);
     border-radius: 3px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.sound-button .title {
+    text-align: center;
+    color: hsl(200, 20%, 95%);
+    margin: 0px;
+    padding: 5px;
+    position: relative;
+    bottom: -25px;
 }
 
 .button1 {
     background-color: hsl(200,60%,70%);
-    border-bottom: 17px solid hsl(200,60%,60%);
+    border-bottom: 25px solid hsl(200,60%,60%);
 }
 
 .button2 {
     background-color: hsl(70,60%,70%);
-    border-bottom: 17px solid hsl(70,60%,60%);
+    border-bottom: 25px solid hsl(70,60%,60%);
 }
 
 .button3 {
     background-color: hsl(10,60%,70%);
-    border-bottom: 17px solid hsl(10,60%,60%);
+    border-bottom: 25px solid hsl(10,60%,60%);
 }
 
 .button4 {
     background-color: hsl(120,60%,70%);
-    border-bottom: 17px solid hsl(120,60%,60%);
+    border-bottom: 25px solid hsl(120,60%,60%);
 }
 
 .button5 {
     background-color: hsl(150,60%,70%);
-    border-bottom: 17px solid hsl(150,60%,60%);
+    border-bottom: 25px solid hsl(150,60%,60%);
 }
 
 .button6 {
     background-color: hsl(240,60%,70%);
-    border-bottom: 17px solid hsl(240,60%,60%);
+    border-bottom: 25px solid hsl(240,60%,60%);
 }
 
 .button7 {
     background-color: hsl(290,60%,70%);
-    border-bottom: 17px solid hsl(290,60%,60%);
+    border-bottom: 25px solid hsl(290,60%,60%);
 }
 
 .button8 {
     background-color: hsl(340,60%,70%);
-    border-bottom: 17px solid hsl(340,60%,60%);
+    border-bottom: 25px solid hsl(340,60%,60%);
 }

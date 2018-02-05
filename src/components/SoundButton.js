@@ -15,7 +15,7 @@ class SoundButton extends Component {
         const className = 'sound-button ' + this.props.className;
         return <div className={className} onClick={() => {
             this.sound.play();
-        }}></div>
+        }}><p className='title'>{this.props.title}</p></div>
     }
 }
 
