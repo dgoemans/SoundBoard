@@ -9,28 +9,35 @@ class App extends React.Component {
         super(props);
 
         this.sounds = [
-            { track: '', title: 'Home', link: 'https://open5e.com/Spellcasting/spells_a-z/index.html' },
-            { track: 'chord_1.wav', title: 'Minor Illusion', link: 'https://open5e.com/Spellcasting/spells_a-z/m/minor-illusion.html' },
-            { track: 'nylon_progression.wav', title: 'Mage Hand', link: 'https://open5e.com/Spellcasting/spells_a-z/m/mage-hand.html' },
-            { track: 'progression_1.wav', title: 'Disonant Whispers', link: 'http://engl393-dnd5th.wikia.com/wiki/Dissonant_Whispers' },
-            { track: 'electric_f_chord.wav', title: 'Faerie Fire', link: 'https://open5e.com/Spellcasting/spells_a-z/f/faerie-fire.html' },
-            { track: 'country.wav', title: 'Heroism', link: 'https://open5e.com/Spellcasting/spells_a-z/h/heroism.html' },
-            { track: 'short_riff.mp3', title: 'Heat Metal', link: 'https://open5e.com/Spellcasting/spells_a-z/s/heat-metal.html' },
-            { track: 'slap.wav', title: 'Sleep', link: 'https://open5e.com/Spellcasting/spells_a-z/s/sleep.html' },
-            { track: 'tenor.wav', title: 'Silence', link: 'https://open5e.com/Spellcasting/spells_a-z/s/silence.html' },
+            { track: '', type: 'cantrip', title: 'Minor Illusion', link: 'https://open5e.com/Spellcasting/spells_a-z/m/minor-illusion.html' },
+            { track: '', type: 'cantrip', title: 'Vicious Mockery', link: 'https://open5e.com/Spellcasting/spells_a-z/v/vicious-mockery.html' },
+            { track: '', type: 'cantrip', title: 'Mage Hand', link: 'https://open5e.com/Spellcasting/spells_a-z/m/mage-hand.html' },
+            { track: '', type: 'first', title: 'Healing word', link: 'https://open5e.com/Spellcasting/spells_a-z/h/healing-word.html' },
+            { track: '', type: 'first', title: 'Disonant Whispers', link: 'http://engl393-dnd5th.wikia.com/wiki/Dissonant_Whispers' },
+            { track: '', type: 'first', title: 'Faerie Fire', link: 'https://open5e.com/Spellcasting/spells_a-z/f/faerie-fire.html' },
+            { track: '', type: 'first', title: 'Heroism', link: 'https://open5e.com/Spellcasting/spells_a-z/h/heroism.html' },
+            { track: '', type: 'first', title: 'Sleep', link: 'https://open5e.com/Spellcasting/spells_a-z/s/sleep.html' },
+            { track: '', type: 'second', title: 'Heat Metal', link: 'https://open5e.com/Spellcasting/spells_a-z/h/heat-metal.html' },
+            { track: '', type: 'second', title: 'Silence', link: 'https://open5e.com/Spellcasting/spells_a-z/s/silence.html' },
         ]
     }
 
     state = {
-        link: 'https://open5e.com/Spellcasting/spells_a-z/index.html'
+        link: 'https://open5e.com/Spellcasting/spells_a-z/index.html',
+        expanded: true
     }
 
     _clicked = (link) => {
         console.log(link);
-        //window.open(link);
         this.setState({
             link: link
         });
+    }
+
+    _toggleButtons = () => {
+        this.setState({
+            expanded: !this.state.expanded
+        })
     }
 
     render () {
@@ -39,7 +46,7 @@ class App extends React.Component {
         for(let i=0; i<this.sounds.length; i++) {
             buttons.push(<SoundButton 
                 key={i} 
-                className={'button' + (i+1)}
+                className={`button${(i+1)} ${this.sounds[i].type}` }
                 sound={'sounds/' + this.sounds[i].track}
                 title={this.sounds[i].title}
                 link={this.sounds[i].link}
@@ -48,7 +55,8 @@ class App extends React.Component {
         }
 
         return (<div className='container'>
-            <div className='buttons'>{buttons}</div>
+            <div className={`buttons ${this.state.expanded ? 'visible' : 'hidden'}`}>{buttons}</div>
+            <div className='expander' onClick={this._toggleButtons}>...</div>
             <iframe className='frame' src={this.state.link} />
         </div>);
     }
